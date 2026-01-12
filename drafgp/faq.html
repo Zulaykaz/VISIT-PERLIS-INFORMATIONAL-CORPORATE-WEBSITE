@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Travel Info: FAQ</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#f8fafc;color:#1e293b;}
+
+
+header{
+    background:linear-gradient(to right,#0f172a,#1e3a8a);
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    position:relative;
+}
+.small-logo{
+    position:absolute;
+    top:15px;
+    left:15px;
+    width:150px;
+}
+.header-flag{
+    width:130px;
+    border:4px solid white;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+header h1{font-size:36px;margin-bottom:10px;}
+header p{max-width:800px;margin:auto;font-size:16px;line-height:1.6;}
+
+nav{
+    background:#020617;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+nav ul{list-style:none;display:flex;justify-content:center;}
+nav ul li{position:relative;}
+nav ul li a{
+    display:block;
+    padding:15px 20px;
+    color:white;
+    text-decoration:none;
+}
+nav ul li a:hover{background:#1d4ed8;}
+nav ul li ul{
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#1e293b;
+    display:none;
+    min-width:200px;
+}
+nav ul li:hover ul{display:block;}
+nav ul li ul li a{padding:10px 15px;}
+
+
+.content{max-width:900px;margin:40px auto;padding:0 20px;}
+.content h2{font-size:32px;color:#1e3a8a;margin-bottom:30px;text-align:center;}
+
+.faq-item{margin-bottom:15px;border-radius:8px;overflow:hidden;}
+.faq-question{
+    padding:18px 25px;
+    cursor:pointer;
+    position:relative;
+    font-weight:bold;
+    color:#0f172a;
+    background:#f1f5f9;
+    border-left:5px solid #1e3a8a;
+}
+.faq-question:hover{background:#e0e7ff;}
+.faq-question::after{
+    content:'+';
+    position:absolute;
+    right:20px;
+    font-size:24px;
+}
+.faq-question.active::after{transform:rotate(45deg);}
+
+.faq-answer{
+    max-height:0;
+    padding:0 25px;
+    font-size:16px;
+    line-height:1.6;
+    background:#fef3c7;
+    overflow:hidden;
+    border-left:5px solid #facc15;
+    transition:0.4s;
+}
+.faq-answer.show{
+    padding:15px 25px;
+    max-height:500px;
+}
+
+.page-navigation{text-align:center;margin:40px 0;}
+.page-navigation button{
+    padding:12px 28px;
+    font-size:16px;
+    border:none;
+    border-radius:5px;
+    background:#1e3a8a;
+    color:white;
+    cursor:pointer;
+    margin:5px;
+}
+
+
+footer{
+    background:#020617;
+    color:#e5e7eb;
+    padding:50px 20px 20px;
+}
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+.footer-box h3{margin-bottom:15px;color:#38bdf8;}
+.footer-box p,.footer-box a{
+    font-size:14px;
+    line-height:1.6;
+    color:#d1d5db;
+    text-decoration:none;
+}
+.footer-box ul{list-style:none;}
+.footer-box ul li{margin-bottom:8px;}
+.footer-box a:hover{color:#38bdf8;}
+.footer-bottom{
+    text-align:center;
+    margin-top:40px;
+    border-top:1px solid #334155;
+    padding-top:15px;
+    font-size:13px;
+    color:#9ca3af;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="img/logo.jpg" class="small-logo">
+    <img src="img/benderaperlis.jpg" class="header-flag">
+    <h1>Travel Info</h1>
+    <p>Frequently Asked Questions about traveling in Perlis to help you plan your visit effectively.</p>
+</header>
+
+<nav>
+<ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">About Perlis</a>
+        <ul>
+            <li><a href="overview.html#overview">Overview</a></li>
+            <li><a href="history.html#history">History</a></li>
+            <li><a href="people.html#people">People & Community</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Explore Perlis</a>
+        <ul>
+            <li><a href="nature.html#nature">Nature & Adventure</a></li>
+            <li><a href="culture.html#culture">Culture & Heritage</a></li>
+            <li><a href="things.html#things">Things To Do</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Food & Lifestyle</a>
+        <ul>
+            <li><a href="local.html#local">Local Food</a></li>
+            <li><a href="traditional.html#traditional">Traditional Cuisine</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Travel Info</a>
+        <ul>
+            <li><a href="tips.html#tips">Travel Tips</a></li>
+            <li><a href="faq.html#faq">FAQ</a></li>
+            <li><a href="contact.html#contact">Contact Us</a></li>
+        </ul>
+    </li>
+</ul>
+</nav>
+
+<section class="content" id="faq">
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<div class="faq-question">1. What is the best time to visit Perlis?</div>
+<div class="faq-answer">The best time to visit Perlis is from November to February when the weather is cooler and rainfall is lower, making it ideal for sightseeing and outdoor activities.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">2. How can I travel around Perlis?</div>
+<div class="faq-answer">You can travel around Perlis by car, taxi, or bicycle. Public transport is limited, so renting a car or using ride-hailing services is recommended for convenience.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">3. Are there any local customs I should know?</div>
+<div class="faq-answer">Visitors should respect local traditions, dress modestly when visiting religious sites, and always ask permission before taking photos of people.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">4. Is Perlis safe for tourists?</div>
+<div class="faq-answer">Yes, Perlis is generally safe for tourists. As with any travel, keep your belongings secure and follow local guidelines.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">5. What local dishes should I try?</div>
+<div class="faq-answer">You should try Perlis laksa, nasi dagang, and kuih-muih local desserts for an authentic culinary experience.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">6. Where can I stay in Perlis?</div>
+<div class="faq-answer">Perlis offers a variety of accommodations, from budget hotels and guesthouses in Kangar to homestays near nature attractions like the Perlis State Park.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">7. Are there any popular tourist attractions?</div>
+<div class="faq-answer">Popular attractions include Gua Kelam, Wang Kelian State Park, Perlis State Park, and Padang Besar for shopping.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">8. What languages are commonly spoken?</div>
+<div class="faq-answer">Malay is the official language. English is widely understood in tourist areas, while some locals also speak Thai and dialects of Malay.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">9. Can I use public transport to reach tourist sites?</div>
+<div class="faq-answer">Public transport is limited, so renting a car or using taxis or ride-hailing apps is recommended for visiting most attractions.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">10. Are there any local festivals worth attending?</div>
+<div class="faq-answer">Yes, some popular festivals include the Perlis Harvest Festival, Chinese New Year celebrations, and Hari Raya Aidilfitri events showcasing local culture and cuisine.</div>
+</div>
+</section>
+
+<div class="page-navigation">
+<button onclick="window.location.href='tips.html#tips'">Back</button>
+<button onclick="window.location.href='contact.html#contact'">Next</button>
+</div>
+
+<footer>
+<div class="footer-container">
+<div class="footer-box">
+<h3>Visit Perlis</h3>
+<p>Official tourism website promoting attractions and culture of Perlis.</p>
+</div>
+
+<div class="footer-box">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="overview.html#overview">About Perlis</a></li>
+<li><a href="#">Explore</a></li>
+<li><a href="#">Lifestyle</a></li>
+</ul>
+</div>
+
+<div class="footer-box">
+<h3>Explore</h3>
+<ul>
+<li><a href="#">Nature</a></li>
+<li><a href="#">Culture</a></li>
+<li><a href="#">Food</a></li>
+<li><a href="#">Travel Tips</a></li>
+</ul>
+</div>
+
+<div class="footer-box">
+<h3>Contact</h3>
+<p>Email: info@visitperlis.com</p>
+<p>Phone: +60 4-123 4567</p>
+<p>Perlis, Malaysia</p>
+</div>
+</div>
+
+<div class="footer-bottom">
+© 2025 Visit Perlis | Recommended Browser: Chrome | All rights reserved.
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(q=>{
+    q.addEventListener('click',()=>{
+        q.classList.toggle('active');
+        q.nextElementSibling.classList.toggle('show');
+    });
+});
+</script>
+
+</body>
+</html>

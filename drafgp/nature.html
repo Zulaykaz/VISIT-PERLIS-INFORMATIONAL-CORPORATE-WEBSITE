@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Explore Perlis: Nature & Adventure</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f8fafc;
+    color:#1e293b;
+}
+
+header{
+    background:linear-gradient(to right,#0f172a,#1e3a8a);
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    position:relative;
+}
+
+.header-logo{
+    position:absolute;
+    top:20px;
+    left:20px;
+}
+
+.header-logo img{
+    width:160px;
+    height:auto;
+    border:none;
+}
+
+
+header .flag{
+    width:130px;
+    border:4px solid white;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+header h1{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+header p{
+    max-width:800px;
+    margin:auto;
+    font-size:16px;
+    line-height:1.6;
+}
+
+
+nav{
+    background:#020617;
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+}
+
+nav ul li{
+    position:relative;
+}
+
+nav ul li a{
+    display:block;
+    padding:15px 20px;
+    color:white;
+    text-decoration:none;
+}
+
+nav ul li a:hover{
+    background:#1d4ed8;
+}
+
+nav ul li ul{
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#1e293b;
+    display:none;
+    min-width:200px;
+}
+
+nav ul li:hover ul{
+    display:block;
+}
+
+nav ul li ul li a{
+    padding:10px 15px;
+}
+
+
+.content{
+    max-width:1100px;
+    margin:40px auto;
+    padding:0 20px;
+    text-align:center;
+}
+
+.content h2{
+    font-size:30px;
+    color:#1e3a8a;
+    margin-bottom:15px;
+}
+
+.content p{
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+
+.title-box{
+    background:#ffe34d;
+    padding:15px;
+    border-radius:8px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.15);
+    margin-bottom:25px;
+}
+
+.title-box a{
+    color:#5c4b00;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:1.2em;
+}
+
+
+.gallery-row{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:50px;
+}
+
+.gallery-row div{
+    width:280px;
+}
+
+.gallery-row img{
+    width:280px;
+    height:180px;
+    object-fit:cover;
+}
+
+.gallery-row p{
+    margin-top:10px;
+    font-size:14px;
+}
+
+
+.adventure-title{
+    font-size:32px;
+    margin:60px 0 40px;
+    color:#1e3a8a;
+    font-weight:bold;
+}
+
+.adventure-box{
+    background:#FFFAA0;
+    padding:30px;
+    margin-bottom:50px;
+    border-radius:14px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.15);
+}
+
+.adventure-box h3{
+    margin-bottom:25px;
+}
+
+.adventure-box h3 a{
+    color:#1e3a8a;
+    text-decoration:none;
+}
+
+.adventure-box h3 a:hover{
+    text-decoration:underline;
+}
+
+.adventure-row{
+    display:flex;
+    gap:25px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+
+.flip-card{
+    width:280px;
+    height:190px;
+    perspective:1000px;
+    cursor:pointer;
+}
+
+.flip-inner{
+    width:100%;
+    height:100%;
+    transition:0.6s;
+    transform-style:preserve-3d;
+    position:relative;
+}
+
+.flip-card.clicked .flip-inner{
+    transform:rotateY(180deg);
+}
+
+.flip-front,
+.flip-back{
+    width:100%;
+    height:100%;
+    position:absolute;
+    border-radius:12px;
+    overflow:hidden;
+    backface-visibility:hidden;
+    box-shadow:0 6px 15px rgba(0,0,0,0.25);
+}
+
+.flip-front img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.flip-back{
+    background:#fbbf24;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    font-weight:bold;
+    transform:rotateY(180deg);
+}
+
+
+.btn-container{
+    margin:40px 0;
+}
+
+.btn-container a{
+    padding:12px 25px;
+    background:#1e3a8a;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    margin:0 15px;
+    font-weight:bold;
+}
+
+.btn-container a:hover{
+    background:#2563eb;
+}
+
+
+footer{
+    background:#020617;
+    color:#e5e7eb;
+    padding:40px 20px 20px;
+    clear:both;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:30px;
+}
+
+.footer-box h3{
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+.footer-box p,
+.footer-box a{
+    font-size:14px;
+    line-height:1.6;
+    color:#d1d5db;
+    text-decoration:none;
+}
+
+.footer-box ul{
+    list-style:none;
+}
+
+.footer-box ul li{
+    margin-bottom:8px;
+}
+
+.footer-box a:hover{
+    color:#38bdf8;
+}
+
+.footer-bottom{
+    text-align:center;
+    margin-top:40px;
+    border-top:1px solid #334155;
+    padding-top:15px;
+    font-size:13px;
+    color:#9ca3af;
+}
+
+
+@media (max-width:768px){
+    .gallery-row div { width:220px; }
+    .gallery-row img { width:220px; height:150px; }
+    .flip-card { width:100%; height:220px; }
+    .header-logo img { width:120px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-logo">
+        <img src="img/logo.jpg" alt="Visit Perlis Logo">
+    </div>
+
+    <img src="img/benderaperlis.jpg" class="flag">
+    <h1>Explore Perlis</h1>
+    <p>Discover the natural beauty and adventure opportunities in Perlis.</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="#">About Perlis</a>
+    <ul>
+        <li><a href="overview.html#overview">Overview</a></li>
+        <li><a href="history.html#history">History</a></li>
+        <li><a href="people.html#people">People & Community</a></li>
+    </ul>
+</li>
+<li><a href="#">Explore Perlis</a>
+    <ul>
+        <li><a href="nature.html#nature">Nature & Adventure</a></li>
+        <li><a href="culture.html#culture">Culture & Heritage</a></li>
+        <li><a href="things.html#things">Things To Do</a></li>
+    </ul>
+</li>
+<li><a href="#">Food & Lifestyle</a>
+    <ul>
+        <li><a href="local.html#local">Local Food</a></li>
+        <li><a href="traditional.html#traditional">Traditional Cuisine</a></li>
+    </ul>
+</li>
+<li><a href="#">Travel Info</a>
+    <ul>
+        <li><a href="tips.html#tips">Travel Tips</a></li>
+        <li><a href="faq.html#faq">FAQ</a></li>
+        <li><a href="contact.html#contact">Contact Us</a></li>
+    </ul>
+</li>
+</ul>
+</nav>
+
+<section class="content">
+
+<h2>Nature and Adventure</h2>
+<p>Experience lakes, caves, hills and thrilling outdoor
+ adventures in Perlis, where nature meets excitement. 
+From peaceful natural spots to adventurous activities, Perlis offers something for every nature lover.</p>
+
+<div class="title-box">
+<a href="https://tourism.perlis.gov.my/tour-item/tasik-timah-tasoh/" target="_blank">
+TASIK TIMAH TASOH
+</a>
+</div>
+<div class="gallery-row">
+<div><img src="img/nature1.jpg"><p>Lake view</p></div>
+<div><img src="img/nature2.jpg"><p>Morning scenery</p></div>
+<div><img src="img/nature3.jpg"><p>Relaxing atmosphere</p></div>
+</div>
+
+<div class="title-box">
+<a href="https://phoenixtrails.home.blog/2024/07/10/gua-kelam-perlis/" target="_blank">
+GUA KELAM
+</a>
+</div>
+<div class="gallery-row">
+<div><img src="img/nature4.jpg"><p>Tourist attraction</p></div>
+<div><img src="img/nature5.jpg"><p>Outside cave</p></div>
+<div><img src="img/nature6.jpg"><p>Cave walkway</p></div>
+</div>
+
+<div class="title-box">
+<a href="https://www.trip.com/moments/poi-bukit-chabang-137132080/" target="_blank">
+BUKIT CHABANG MARI
+</a>
+</div>
+<div class="gallery-row">
+<div><img src="img/nature7.jpg"><p>The New Zealand of Perlis</p></div>
+<div><img src="img/nature8.jpg"><p>Scenic spot</p></div>
+<div><img src="img/nature9.jpg"><p>Animals lovers</p></div>
+</div>
+
+<h2 class="adventure-title">PERLIS ADVENTURE ZONE</h2>
+
+<div class="adventure-box">
+<h3><a href="https://www.mypov.com.my/zohldunmps/bukittokdun" target="_blank">HIKING AT BUKIT TOK DUN</a></h3>
+<div class="adventure-row">
+<div class="flip-card" onclick="flipCard(this)">
+<div class="flip-inner">
+<div class="flip-front"><img src="img/ad1.jpg"></div>
+<div class="flip-back">Peak of Bukit Tok Dun</div>
+</div></div>
+
+<div class="flip-card" onclick="flipCard(this)">
+<div class="flip-inner">
+<div class="flip-front"><img src="img/ad2.jpg"></div>
+<div class="flip-back">Bukit Tok Dun Track</div>
+</div></div>
+
+<div class="flip-card" onclick="flipCard(this)">
+<div class="flip-inner">
+<div class="flip-front"><img src="img/ad3.jpg"></div>
+<div class="flip-back">View from the peak</div>
+</div></div>
+</div>
+</div>
+
+<div class="adventure-box">
+<h3><a href="https://www.perlistourism.com" target="_blank">PADDLING THROUGH KAMPUNG WAI</a></h3>
+<div class="adventure-row">
+<div class="flip-card" onclick="flipCard(this)">
+<div class="flip-inner">
+<div class="flip-front"><img src="img/ad4.jpg"></div>
+<div class="flip-back">Natural beauty</div>
+</div></div>
+
+<div class="flip-card" onclick="flipCard(this)">
+<div class="flip-inner">
+<div class="flip-front"><img src="img/ad5.jpg"></div>
+<div class="flip-back">Peaceful village</div>
+</div></div>
+
+<div class="flip-card" onclick="flipCard(this)">
+<div class="flip-inner">
+<div class="flip-front"><img src="img/ad6.jpg"></div>
+<div class="flip-back">Outdoor activities</div>
+</div></div>
+</div>
+</div>
+
+<div class="adventure-box">
+<h3><a href="https://www.thecrag.com/en/climbing/malaysia/area/415519470">CLIMBING AT BUKIT KETERI</a></h3>
+<div class="adventure-row">
+<div class="flip-card" onclick="flipCard(this)">
+<div class="flip-inner">
+<div class="flip-front"><img src="img/ad7.jpg"></div>
+<div class="flip-back">Hill panorama</div>
+</div></div>
+
+<div class="flip-card" onclick="flipCard(this)">
+<div class="flip-inner">
+<div class="flip-front"><img src="img/ad8.jpg"></div>
+<div class="flip-back">Interesting trail</div>
+</div></div>
+
+<div class="flip-card" onclick="flipCard(this)">
+<div class="flip-inner">
+<div class="flip-front"><img src="img/ad9.jpg"></div>
+<div class="flip-back">Leisure activity</div>
+</div></div>
+</div>
+</div>
+
+<div class="btn-container">
+<a href="people.html">Back</a>
+<a href="culture.html">Next</a>
+</div>
+
+</section>
+
+<footer>
+<div class="footer-container">
+    <div class="footer-box">
+        <h3>Visit Perlis</h3>
+        <p>Official tourism website promoting attractions and culture of Perlis.</p>
+    </div>
+    <div class="footer-box">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="overview.html#overview">About Perlis</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Lifestyle</a></li>
+        </ul>
+    </div>
+    <div class="footer-box">
+        <h3>Explore</h3>
+        <ul>
+            <li><a href="#">Nature</a></li>
+            <li><a href="#">Culture</a></li>
+            <li><a href="#">Food</a></li>
+            <li><a href="#">Travel Tips</a></li>
+        </ul>
+    </div>
+    <div class="footer-box">
+        <h3>Contact</h3>
+        <p>Email: info@visitperlis.com</p>
+        <p>Phone: +60 4-123 4567</p>
+        <p>Perlis, Malaysia</p>
+    </div>
+</div>
+<div class="footer-bottom">
+© 2025 Visit Perlis | Recommended Browser: Chrome | All rights reserved. 
+</div>
+</footer>
+
+<script>
+function flipCard(card){
+    card.classList.toggle("clicked");
+}
+</script>
+
+</body>
+</html>

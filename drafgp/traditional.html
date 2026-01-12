@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Food & Lifestyle: Traditional Cuisine</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+body{background:#f8fafc;color:#1e293b;}
+
+header{
+  background:linear-gradient(to right,#0f172a,#1e3a8a);
+  color:white;
+  text-align:center;
+  padding:30px 20px;
+  position:relative;
+}
+
+
+.small-logo{
+  position:absolute;
+  top:15px;
+  left:15px;
+  width:150px;
+}
+
+
+header img.header-flag{
+  width:130px;
+  border:4px solid white; 
+  border-radius:8px;
+  margin-bottom:15px;
+  animation:wave 2s infinite;
+}
+
+
+header h1{
+  font-size:36px;
+  margin-bottom:10px;
+}
+header p{
+  max-width:800px;
+  margin:auto;
+  font-size:16px;
+  line-height:1.6;
+}
+
+
+nav{
+  background:#020617;
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap;}
+nav ul li{position:relative;}
+nav ul li a{display:block;padding:15px 20px;color:white;text-decoration:none;}
+nav ul li a:hover{background:#1d4ed8;}
+nav ul li ul{position:absolute;top:100%;left:0;background:#1e293b;display:none;min-width:200px;}
+nav ul li:hover ul{display:block;}
+nav ul li ul li a{padding:10px 15px;}
+
+
+.traditional-section{background:#ffffff;padding:40px 0;}
+.title{text-align:center;font-size:26px;font-weight:bold;margin-top:20px;}
+
+
+.top-bar{
+  width:80%;                     
+  background: linear-gradient(to right, #a9c5f7, #7da1e3);
+  margin:20px auto; 
+  border-radius:10px;
+  padding:15px 20px;             
+  text-align:justify;
+  font-size:16px;
+  line-height:1.6;
+  color:#1e293b;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+
+.subtitle{
+  text-align:center;
+  font-size:24px;
+  font-weight:bold;
+  margin:50px 0 10px;
+}
+
+
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 150px);
+  gap:8px;
+  grid-template-areas:
+    "big-left small1 small2 small3 small4 big-right"
+    "big-left small5 small6 small7 small8 big-right"
+    "big-left . . . . big-right";
+  margin-bottom:0px;
+}
+.food-item{position:relative;overflow:hidden;border-radius:8px;cursor:pointer;}
+.food-item img{width:100%;height:100%;object-fit:cover;transition:0.4s ease;}
+.food-item::after{
+  content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55);opacity:0;transition:0.4s ease;
+}
+.food-item span{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  color:#ffffff;font-size:18px;font-weight:bold;text-align:center;
+  padding:6px 12px;background:rgba(0,0,0,0.6);
+  border-radius:6px;opacity:0;transition:0.4s ease;
+  text-shadow:0 2px 6px rgba(0,0,0,0.8);
+}
+.food-item:hover img{transform:scale(1.08);}
+.food-item:hover::after{opacity:1;}
+.food-item:hover span{opacity:1;}
+
+
+.food-item.big-left{grid-area:big-left;grid-row: span 2;}
+.food-item.big-right{grid-area:big-right;grid-row: span 2;}
+.food-item.small1{grid-area:small1;}
+.food-item.small2{grid-area:small2;}
+.food-item.small3{grid-area:small3;}
+.food-item.small4{grid-area:small4;}
+.food-item.small5{grid-area:small5;}
+.food-item.small6{grid-area:small6;}
+.food-item.small7{grid-area:small7;}
+.food-item.small8{grid-area:small8;}
+
+
+.bottom-title{
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+  margin:10px 0 20px;
+}
+
+
+.bottom-box-wrapper{
+  width:100%;
+  background:#5b8cc7;
+  padding:40px 0;
+  display:flex;
+  justify-content:center;
+}
+
+
+.bottom-box{
+  width:90%;
+  background:transparent;
+  padding:0;
+}
+
+
+.yellow-grid{
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap:10px;
+}
+
+
+.yellow-box{
+  background:#fff9a6;
+  color:#1e293b;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:14px;
+  font-weight:bold;
+  text-align:center;
+  border-radius:0;
+  padding:10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.quiz-game-section{
+  width:100%;
+  background:#f0f4f8;
+  padding:40px 0;
+}
+.quiz-game-container{
+  width:90%;
+  margin:auto;
+  background:#ffffff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+.quiz-game-container h2{
+  margin-bottom:25px; /* jarak tajuk & soalan */
+  font-size:22px;
+  font-weight:bold;
+}
+.option-btn{
+  padding:10px 15px; 
+  width:100%; 
+  text-align:left; 
+  border:none; 
+  border-radius:5px; 
+  background:#fff9a6;
+  cursor:pointer;
+  margin-bottom:10px;
+  transition:0.3s;
+}
+.option-btn:hover{
+  background:#fcefc1;
+}
+.correct{background:#16a34a !important;color:white;}
+.wrong{background:#dc2626 !important;color:white;}
+
+
+.next-page{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-bottom:40px; 
+}
+.next-page button{
+  padding:10px 25px;
+  font-size:16px;
+  border:none;
+  border-radius:5px;
+  background:#1e3a8a;
+  color:white;
+  cursor:pointer;
+}
+.next-page button:hover{background:#2563eb;}
+
+footer{
+  background:#020617;
+  color:#e5e7eb;
+  padding:50px 20px 20px;
+}
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:30px;
+}
+.footer-box h3{
+  margin-bottom:15px;
+  color:#38bdf8;
+}
+.footer-box p, .footer-box a{
+  font-size:14px;
+  line-height:1.6;
+  color:#d1d5db;
+  text-decoration:none;
+}
+.footer-box ul{
+  list-style:none;
+}
+.footer-box ul li{
+  margin-bottom:8px;
+}
+.footer-box a:hover{
+  color:#38bdf8;
+}
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  border-top:1px solid #334155;
+  padding-top:15px;
+  font-size:13px;
+  color:#9ca3af;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <img src="img/logo.jpg" class="small-logo" alt="Logo visit perlis">
+    <img src="img/benderaperlis.jpg" class="header-flag" alt="Perlis Flag">
+    <h1>Food & Lifestyle</h1>
+    <p>Explore the traditional cuisine of Perlis, a taste of heritage passed down through generations.</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="#">About Perlis</a>
+  <ul>
+    <li><a href="overview.html#overview">Overview</a></li>
+    <li><a href="history.html#history">History</a></li>
+    <li><a href="people.html#people">People & Community</a></li>
+  </ul>
+</li>
+<li><a href="#">Explore Perlis</a>
+  <ul>
+    <li><a href="nature.html#nature">Nature & Adventure</a></li>
+    <li><a href="culture.html#culture">Culture & Heritage</a></li>
+    <li><a href="things.html#things">Things To Do</a></li>
+  </ul>
+</li>
+<li><a href="#">Food & Lifestyle</a>
+  <ul>
+    <li><a href="local.html#local">Local Food</a></li>
+    <li><a href="traditional.html#traditional">Traditional Cuisine</a></li>
+  </ul>
+</li>
+<li><a href="#">Travel Info</a>
+  <ul>
+    <li><a href="tips.html#tips">Travel Tips</a></li>
+    <li><a href="faq.html#faq">FAQ</a></li>
+    <li><a href="contact.html#contact">Contact Us</a></li>
+  </ul>
+</li>
+</ul>
+</nav>
+
+<section class="traditional-section">
+<div class="title">Traditional Cuisine</div>
+
+<div class="top-bar">
+  <p>Perlis offers a variety of traditional dishes, from sweet kuih to savory seafood delights. Each dish reflects the state’s rich culture and the heritage of its people.</p>
+</div>
+
+<div class="subtitle">Perlis Traditional Delights</div>
+
+<div class="gallery">
+<div class="food-item big-left"><img src="img/food1.jpg"><span>Pulut Pelam</span></div>
+<div class="food-item small1"><img src="img/food2.jpg"><span>Kuih Serabai</span></div>
+<div class="food-item small2"><img src="img/food3.jpg"><span>Kuih Karas</span></div>
+<div class="food-item small3"><img src="img/food4.jpg"><span>Pulut Sambal</span></div>
+<div class="food-item small4"><img src="img/food5.jpg"><span>Pulut Ikan Kering</span></div>
+<div class="food-item small5"><img src="img/food6.jpg"><span>Jeruk Maman</span></div>
+<div class="food-item small6"><img src="img/food7.jpg"><span>Dangai</span></div>
+<div class="food-item small7"><img src="img/food8.jpg"><span>Apam Puri</span></div>
+<div class="food-item small8"><img src="img/food9.jpg"><span>Emping/Ringgi</span></div>
+<div class="food-item big-right"><img src="img/food10.jpg"><span>Udang Sanggul</span></div>
+</div>
+
+<div class="bottom-title">Taste of Perlis: Traditional Cuisine</div>
+
+<div class="bottom-box-wrapper">
+  <div class="bottom-box">
+    <div class="yellow-grid">
+      <div class="yellow-box">Pulut Pelam Harumanis is a traditional dessert made with glutinous rice and Perlis Harumanis mango. A seasonal delicacy.</div>
+      <div class="yellow-box">Kuih Serabai is a soft pancake made from rice flour and coconut milk, often served with sweet gravy.</div>
+      <div class="yellow-box">Jeruk Maman is made from fermented maman leaves, eaten as a side dish with rice.</div>
+      <div class="yellow-box">Kuih Karas is a crispy lace-like snack made from rice flour, popular during festive occasions.</div>
+      <div class="yellow-box">Dangai is grated coconut mixed with flour and sugar, baked until crispy. A traditional Perlis treat.</div>
+      <div class="yellow-box">Pulut Sambal is glutinous rice served with spicy sambal, combining soft texture and rich flavor.</div>
+      <div class="yellow-box">Apam Puri is a soft steamed rice cake filled with sweet custard, palm sugar, or coconut.</div>
+      <div class="yellow-box">Pulut Ikan Kering is glutinous rice with dried fish, often accompanied by spicy condiments.</div>
+      <div class="yellow-box">Ringgi/Emping is thin crispy discs made from pounded rice, eaten with sugar or curry.</div>
+      <div class="yellow-box">Udang Sanggul is prawns coated in batter, rolled in thin spring roll pastry, and deep-fried until crispy.</div>
+    </div>
+  </div>
+</div>
+
+<section class="quiz-game-section">
+  <div class="quiz-game-container">
+    <h2>🎯 Multiple Choice Quiz: Traditional Cuisine</h2>
+    <div id="quiz-container"></div>
+    <div id="quiz-feedback" style="margin-top:15px; font-weight:bold;"></div>
+  </div>
+</section>
+
+<div class="next-page">
+  <button onclick="location.href='local.html'">Back</button>
+  <button onclick="location.href='tips.html'">Next</button>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>Visit Perlis</h3>
+            <p>Official tourism website promoting attractions and culture of Perlis.</p>
+        </div>
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html#overview">About Perlis</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Lifestyle</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>Explore</h3>
+            <ul>
+                <li><a href="#">Nature</a></li>
+                <li><a href="#">Culture</a></li>
+                <li><a href="#">Food</a></li>
+                <li><a href="#">Travel Tips</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Email: info@visitperlis.com</p>
+            <p>Phone: +60 4-123 4567</p>
+            <p>Perlis, Malaysia</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 Visit Perlis | Recommended Browser: Chrome | All rights reserved.
+    </div>
+</footer>
+
+<script>
+const quizData = [
+  {question:"Which dish is a traditional Perlis dessert made from glutinous rice and Harumanis mango?", options:["Pulut Pelam","Kuih Serabai","Udang Sanggul","Dangai"], answer:"Pulut Pelam"},
+  {question:"Which traditional pancake is made from rice flour and coconut milk?", options:["Kuih Serabai","Pulut Sambal","Apam Puri","Ringgi"], answer:"Kuih Serabai"},
+  {question:"Jeruk Maman is made from what?", options:["Maman leaves","Dried fish","Coconut","Rice"], answer:"Maman leaves"},
+  {question:"Apam Puri is usually served in what form?", options:["Soft steamed cake","Fried crispy","Baked","Raw"], answer:"Soft steamed cake"},
+  {question:"Udang Sanggul is prepared by coating prawns in?", options:["Batter & spring roll pastry","Sugar & coconut","Rice flour","Curry"], answer:"Batter & spring roll pastry"}
+];
+
+let currentQuestion = 0;
+const quizContainer = document.getElementById("quiz-container");
+const feedback = document.getElementById("quiz-feedback");
+
+function shuffleArray(array){
+  for(let i=array.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [array[i],array[j]]=[array[j],array[i]];
+  }
+  return array;
+}
+
+function loadQuestion(){
+  feedback.innerText = "";
+  const q = quizData[currentQuestion];
+  const shuffledOptions = shuffleArray([...q.options]);
+  let html = `<p style="font-weight:bold; font-size:18px; margin-bottom:15px;">${q.question}</p>`;
+  html += '<ul style="list-style:none; padding-left:0;">';
+  shuffledOptions.forEach(option=>{
+    html += `<li><button class="option-btn">${option}</button></li>`;
+  });
+  html += '</ul>';
+  quizContainer.innerHTML = html;
+
+  const optionBtns = document.querySelectorAll(".option-btn");
+  optionBtns.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      if(btn.innerText === q.answer){
+        btn.classList.add("correct");
+        feedback.innerText = "✅ Correct!";
+      } else {
+        btn.classList.add("wrong");
+        feedback.innerText = `❌ Wrong! Correct answer: ${q.answer}`;
+      }
+    });
+  });
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>

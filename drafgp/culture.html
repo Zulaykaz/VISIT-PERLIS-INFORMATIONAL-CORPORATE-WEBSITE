@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Explore Perlis | Culture & Heritage</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, Helvetica, sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:#e6e0ff;color:#1e293b;}
+
+
+header{
+    background:linear-gradient(to right,#0f172a,#1e3a8a);
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+    position:relative;
+}
+.header-flag{
+    width:130px;
+    border:4px solid white;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+.small-logo{
+    position:absolute;
+    top:15px;
+    left:15px;
+    width:150px;
+}
+header h1{font-size:36px;margin-bottom:10px;}
+header p{max-width:800px;margin:auto;font-size:16px;line-height:1.6;}
+
+
+nav{background:#020617;position:sticky;top:0;z-index:1000;}
+nav ul{list-style:none;display:flex;justify-content:center;}
+nav ul li{position:relative;}
+nav ul li a{display:block;padding:15px 20px;color:white;text-decoration:none;}
+nav ul li a:hover{background:#1d4ed8;}
+nav ul li ul{
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#1e293b;
+    display:none;
+    min-width:200px;
+}
+nav ul li:hover ul{display:block;}
+nav ul li ul li a{padding:10px 15px;}
+
+
+.content{
+    max-width:1100px;
+    margin:50px auto;
+    padding:0 20px;
+    text-align:center;
+}
+.content h2{font-size:28px;margin-bottom:15px;color:#1e3a8a;}
+.content p{font-size:15px;line-height:1.7;margin-bottom:20px;}
+
+
+.adat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:30px;
+}
+.adat-box{
+    background:#fef9c3;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.25);
+}
+.adat-box h3{
+    font-size:15px;
+    margin-bottom:8px;
+}
+.adat-box p{
+    font-size:13px;
+    line-height:1.5;
+    text-align:justify;
+}
+
+
+.additional-images{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+.additional-images .img-box{
+    text-align:center;
+}
+.additional-images .img-box img{
+    width:300px;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.25);
+}
+.additional-images .img-box p{
+    font-size:13px;
+    margin-top:8px;
+}
+@media(max-width:900px){
+    .adat-grid{grid-template-columns:repeat(2,1fr);}
+    .history-grid{grid-template-columns:repeat(2,1fr);}
+    .additional-images{flex-direction:column;align-items:center;}
+    .additional-images .img-box img{width:80%; height:auto;}
+}
+
+
+.history-section{
+    background:#FADA5E;
+    padding:50px 20px;
+}
+.history-title{
+    text-align:center;
+    font-size:24px;
+    margin-bottom:25px;
+}
+.history-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+.history-box{
+    background:#ffffff;
+    border-radius:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.25);
+    overflow:hidden;
+    text-align:center;
+}
+.history-box img{
+    width:100%;
+    height:130px;
+    object-fit:cover;
+}
+.history-box span{
+    display:block;
+    padding:8px;
+    font-size:13px;
+    font-weight:600;
+}
+
+
+.dance-desc{
+    max-width:900px;
+    margin:20px auto;
+    background:#fef9c3;
+    padding:15px;
+    border-radius:10px;
+    font-size:14px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.25);
+}
+.video-box{
+    width:360px;
+    margin:25px auto;
+    border:3px solid #000;
+    padding:10px;
+    background:#fff;
+}
+
+
+footer{
+    background:#020617;
+    color:#e5e7eb;
+    padding:50px 20px 20px;
+}
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+.footer-box h3{margin-bottom:15px;color:#38bdf8;}
+.footer-box p,.footer-box a{
+    font-size:14px;
+    line-height:1.6;
+    color:#e5e7eb;
+    text-decoration:none;
+}
+.footer-box ul{list-style:none;}
+.footer-box ul li{margin-bottom:8px;}
+.footer-bottom{
+    text-align:center;
+    margin-top:40px;
+    border-top:1px solid #334155;
+    padding-top:15px;
+    font-size:13px;
+    color:#9ca3af;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="img/logo.jpg" class="small-logo">
+<img src="img/benderaperlis.jpg" class="header-flag">
+<h1>Explore Perlis</h1>
+<p>Discover the rich culture and heritage of Perlis through its traditions and landmarks.</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="#">About Perlis</a>
+<ul>
+<li><a href="overview.html">Overview</a></li>
+<li><a href="history.html">History</a></li>
+<li><a href="people.html">People & Community</a></li>
+</ul>
+</li>
+<li><a href="#">Explore Perlis</a>
+<ul>
+<li><a href="nature.html">Nature & Adventure</a></li>
+<li><a href="culture.html">Culture & Heritage</a></li>
+<li><a href="things.html">Things To Do</a></li>
+</ul>
+</li>
+<li><a href="#">Food & Lifestyle</a>
+<ul>
+<li><a href="local.html">Local Food</a></li>
+<li><a href="traditional.html">Traditional Cuisine</a></li>
+</ul>
+</li>
+<li><a href="#">Travel Info</a>
+<ul>
+<li><a href="tips.html">Travel Tips</a></li>
+<li><a href="faq.html">FAQ</a></li>
+<li><a href="contact.html">Contact Us</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+<section class="content">
+<h2 style="font-size:32px; color:#1e3a8a; margin-bottom:10px;">Culture and Heritage</h2>
+<p style="font-size:14px; max-width:800px; margin:auto; margin-bottom:25px;">
+Explore the rich cultural practices and heritage of Perlis that have been preserved through
+ generations, reflecting the traditions, customs and identity of the local community.
+</p>
+
+<h3 style="font-size:24px; color:#1e3a8a; margin-bottom:15px;">Unique Traditions in Perlis</h3>
+
+<div class="adat-grid">
+<div class="adat-box"><h3>The Berinai ceremony</h3><p>The Berinai ceremony is a traditional pre-wedding ritual in Perlis
+ where the bride and groom have henna applied as a symbol of blessing and beauty. It has three stages, Berinai Curi, 
+Berinai Kecil, and Berinai Besar, accompanied by music, dance and prayers according to Malay-Islamic customs.</p></div>
+
+<div class="adat-box"><h3>Gotong-Royong</h3><p>Gotong royong in Perlis is a community tradition where neighbors come together
+ to clean, repair or organize communal activities, fostering cooperation, unity and mutual help.</p></div>
+
+<div class="adat-box"><h3>Rice Field Taboos</h3><p>In Perlis, traditional rice field taboos guide farmers to avoid
+ certain actions or behaviors such as stepping into the field with dirty clothes, whistling at night or cutting young
+ plants to ensure good harvests, safety and harmony with nature.</p></div>
+
+<div class="adat-box"><h3>Fishermen’s Taboos</h3><p>Fishermen in Perlis follow traditional taboos such as avoiding fishing
+ on certain days, not whistling at sea, or not arguing while at sea, to ensure safety, good
+ catch and harmony with nature.</p></div>
+
+<div class="adat-box"><h3>Adat Berendoi</h3><p>Berendoi is a traditional Malay ceremony in Perlis held for newborn babies,
+ where the baby is placed in a cradle (endoi), family and friends pray for the baby’s health, protection and blessings,
+ often accompanied by songs, lullabies and light celebration.</p></div>
+
+<div class="adat-box"><h3>Death Customs and Tahlil</h3><p>In Perlis, death customs follow Islamic practices, including funeral preparation,
+ Salat al-Janazah (funeral prayer), tahlil recitations and grave visits. These rites honor the deceased, pray for their soul and
+ strengthen community ties.</p></div>
+</div>
+
+
+<div class="additional-images">
+  <div class="img-box">
+    <img src="img/her1.jpg" alt="Perlis Craft">
+    <p>Adat Berendoi</p>
+  </div>
+  <div class="img-box">
+    <img src="img/her2.jpg" alt="Village Ceremony">
+    <p>Tahlil</p>
+  </div>
+</div>
+</section>
+
+
+<section class="history-section">
+<h2 class="history-title">Historical Places in Perlis</h2>
+
+<div class="history-grid">
+  <div class="history-box">
+    <img src="img/cul1.jpg">
+    <span>Museum Kota Kayang</span>
+    <p style="font-size:12px; padding:5px;">Historic museum showcasing Perlis’ history and artifacts.</p>
+  </div>
+  <div class="history-box">
+    <img src="img/cul2.jpg">
+    <span>Masjid Alwi</span>
+    <p style="font-size:12px; padding:5px;">Historic mosque in Kangar, known for its unique architectural style and cultural significance.</p>
+  </div>
+  <div class="history-box">
+    <img src="img/cul3.jpg">
+    <span>Istana Diraja Arau</span>
+    <p style="font-size:12px; padding:5px;">Royal palace of Perlis’ Sultan, combining traditional Malay and modern architectural elements.</p>
+  </div>
+  <div class="history-box">
+    <img src="img/cul4.jpg">
+    <span>Bangunan Pentadbiran Kangar</span>
+    <p style="font-size:12px; padding:5px;">Administrative building of Kangar, reflecting colonial-era architecture.</p>
+  </div>
+</div>
+</section>
+
+
+<section class="content">
+<h2>Traditional Dances of Perlis</h2>
+
+<div class="dance-desc">
+<strong>Canggung Dance</strong> is a traditional dance from Perlis that reflects the simple lifestyle and joyful spirit of the local community.
+</div>
+
+<div class="video-box">
+<video width="100%" controls>
+<source src="video/dance.mp4" type="video/mp4">
+</video>
+</div>
+
+
+<div style="text-align:center; margin:20px 0;">
+    <button onclick="window.location.href='nature.html'" style="padding:10px 20px; margin-right:10px; font-size:14px; border:none; border-radius:5px; background:#1d4ed8; color:white; cursor:pointer;">Back</button>
+    <button onclick="window.location.href='things.html'" style="padding:10px 20px; font-size:14px; border:none; border-radius:5px; background:#1d4ed8; color:white; cursor:pointer;">Next</button>
+</div>
+
+</section>
+
+<footer>
+<div class="footer-container">
+<div class="footer-box">
+<h3>Visit Perlis</h3>
+<p>Official tourism website promoting attractions and culture of Perlis.</p>
+</div>
+<div class="footer-box">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="overview.html">About Perlis</a></li>
+<li><a href="#">Explore</a></li>
+<li><a href="#">Lifestyle</a></li>
+</ul>
+</div>
+<div class="footer-box">
+<h3>Explore</h3>
+<ul>
+<li><a href="#">Nature</a></li>
+<li><a href="#">Culture</a></li>
+<li><a href="#">Food</a></li>
+<li><a href="#">Travel Tips</a></li>
+</ul>
+</div>
+<div class="footer-box">
+<h3>Contact</h3>
+<p>Email: info@visitperlis.com</p>
+<p>Phone: +60 4-123 4567</p>
+<p>Perlis, Malaysia</p>
+</div>
+</div>
+<div class="footer-bottom">
+© 2025 Visit Perlis | Recommended Browser: Chrome | All rights reserved. 
+</div>
+</footer>
+
+</body>
+</html>
