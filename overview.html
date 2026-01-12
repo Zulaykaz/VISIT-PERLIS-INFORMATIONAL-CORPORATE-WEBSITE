@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Perlis | Overview</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #e6e0ff; 
+    color: #1e293b;
+    scroll-behavior: smooth;
+}
+
+header {
+    background: linear-gradient(to right, #0f172a, #1e3a8a); 
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+}
+
+header img.header-flag {
+    width: 130px;
+    border: 4px solid white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.small-logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 150px; 
+    height: auto;
+    border: none;
+    border-radius: 0;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+header p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+nav {
+    background: #020617;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background: #1d4ed8;
+}
+
+nav ul li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #1e293b;
+    display: none;
+    min-width: 200px;
+}
+
+nav ul li:hover ul {
+    display: block;
+}
+
+nav ul li ul li a {
+    padding: 10px 15px;
+}
+
+.content {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.content h2 {
+    font-size: 30px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+}
+
+.description-box {
+    background-color: #ccccff; 
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid white; 
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.description-box p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.map-wrapper {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 80vh; 
+    max-height: 800px; 
+    border: none;
+    border-radius: 10px;
+}
+
+
+.petaperlis {
+    width: 90%;           
+    max-width: 600px;     
+    height: auto;
+    display: block;
+    margin: 40px auto 50px; 
+    border-radius: 10px;
+    cursor: pointer;      
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.next-page {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.next-page button {
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1e3a8a;
+    color: white;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.next-page button:hover {
+    background-color: #2563eb;
+}
+
+footer {
+    background: #020617;
+    color: #e5e7eb;
+    padding: 50px 20px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 30px;
+}
+
+.footer-box h3 {
+    margin-bottom: 15px;
+    color: #38bdf8;
+}
+
+.footer-box p,
+.footer-box a {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+.footer-box ul {
+    list-style: none;
+}
+
+.footer-box ul li {
+    margin-bottom: 8px;
+}
+
+.footer-box a:hover {
+    color: #38bdf8;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid #334155;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #9ca3af;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="img/logo.jpg" alt="Logo" class="small-logo">
+    <img src="img/benderaperlis.jpg" alt="Perlis Flag" class="header-flag">
+    <h1>About Perlis</h1>
+    <p>Learn about Perlis, Malaysia’s smallest state, its history, people and unique characteristics.</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About Perlis</a>
+            <ul>
+                <li><a href="overview.html">Overview</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="people.html">People & Community</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Explore Perlis</a>
+            <ul>
+                <li><a href="nature.html">Nature & Adventure</a></li>
+                <li><a href="culture.html">Culture & Heritage</a></li>
+                <li><a href="things.html">Things To Do</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Food & Lifestyle</a>
+            <ul>
+                <li><a href="local.html">Local Food</a></li>
+                <li><a href="traditional.html">Traditional Cuisine</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Travel Info</a>
+            <ul>
+                <li><a href="tips.html">Travel Tips</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<section class="content">
+    <h2>Overview of Perlis</h2>
+    
+    <div class="description-box">
+        <p>Perlis is located at the northern tip of Peninsular Malaysia, covering an area of about 821 sq km. 
+It is the smallest state in Malaysia with a peaceful environment, rich cultural heritage, limestone hills and unique local traditions.</p>
+        <p>Its capital, Kangar, features a mix of colonial and modern architecture, while smaller towns offer 
+a glimpse into the calm rural lifestyle and local culture. The state is known for its serene natural landscapes and vibrant cultural events.</p>
+    </div>
+
+    <div class="map-wrapper">
+        <iframe src="https://www.google.com/maps?q=Perlis,Malaysia&output=embed" loading="lazy"></iframe>
+    </div>
+
+    <img src="img/petaperlis.jpg" alt="Map of Perlis" class="petaperlis" id="petamap">
+
+    <p style="text-align:center; margin-top:10px;">
+        <strong>Official website:</strong> <a href="https://www.perlis.gov.my" target="_blank">https://www.perlis.gov.my</a>
+    </p>
+</section>
+
+<div class="next-page">
+    <button onclick="window.location.href='index.html'">Back</button>
+    <button onclick="window.location.href='history.html'">Next</button>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>Visit Perlis</h3>
+            <p>Official tourism website promoting attractions and culture of Perlis.</p>
+        </div>
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">About Perlis</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Lifestyle</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>Explore</h3>
+            <ul>
+                <li><a href="#">Nature</a></li>
+                <li><a href="#">Culture</a></li>
+                <li><a href="#">Food</a></li>
+                <li><a href="#">Travel Tips</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Email: info@visitperlis.com</p>
+            <p>Phone: +60 4-123 4567</p>
+            <p>Perlis, Malaysia</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 Visit Perlis | Recommended Browser: Chrome | All rights reserved.
+    </div>
+</footer>
+
+<div id="mapModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+var modal = document.getElementById("mapModal");
+var img = document.getElementById("petamap");
+var modalImg = document.getElementById("modalImage");
+var span = document.getElementsByClassName("close")[0];
+
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+}
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if(event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>

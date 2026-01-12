@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Food & Lifestyle: Local Food</title>
+
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:Arial, Helvetica, sans-serif;}
+body {background:#f8fafc; color:#1e293b;}
+
+header {
+  background:linear-gradient(to right,#0f172a,#1e3a8a);
+  color:white;
+  text-align:center;
+  padding:30px 20px;
+  position:relative;
+}
+
+.header-logo{
+  position:absolute;
+  top:20px;
+  left:20px;
+  width:150px;
+  height:auto;
+}
+
+.header-flag{
+  width:130px;
+  border:4px solid white;
+  border-radius:8px;
+  margin-bottom:15px;
+}
+
+header h1 {font-size:36px; margin-bottom:10px;}
+header p {max-width:800px; margin:auto; font-size:16px; line-height:1.6;}
+
+
+nav {
+  background:#020617;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+nav ul {
+  list-style:none;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+nav ul li {position:relative;}
+nav ul li a {
+  display:block;
+  padding:15px 20px;
+  color:white;
+  text-decoration:none;
+  white-space:nowrap;
+}
+nav ul li a:hover {background:#1d4ed8;}
+nav ul li ul {
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#1e293b;
+  display:none;
+  min-width:200px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+nav ul li:hover ul {display:block;}
+nav ul li ul li a {padding:10px 15px;}
+
+
+.review-place {margin-bottom:10px;}
+
+.green-box{
+  margin-top:5px;
+  padding:8px;
+  background:#fde68a;
+  color:#1e293b;
+  border-radius:8px;
+  font-size:13px;
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.section-title{
+  text-align:center;
+  font-size:28px;
+  margin:40px 0 20px;
+  color:#1e3a8a;
+}
+
+.intro-box{
+  background:#b7d2ff;
+  max-width:1100px;
+  margin:20px auto;
+  padding:20px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.time-section{max-width:1100px; margin:30px auto; padding:10px;}
+.time-row{display:flex; justify-content:space-between; gap:10px; margin-bottom:15px;}
+.time-box{
+  flex:1;
+  background:#3b82f6;
+  color:white;
+  border-radius:12px;
+  padding:15px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.time-box img{
+  width:130px;
+  height:130px;
+  object-fit:cover;
+  border-radius:10px;
+  cursor:pointer;
+  flex-shrink:0;
+}
+.time-box h3{margin-bottom:6px;}
+.time-box p{font-size:14px; line-height:1.4; text-align:justify;}
+.soft-yellow{background:#fde68a; color:#1e293b;}
+
+.label{
+  background:black;
+  color:white;
+  display:block;
+  width:fit-content;
+  padding:5px 15px;
+  border-radius:20px;
+  margin:15px auto;
+}
+
+.review-bg{
+  width:100%;
+  background:#bae6fd;
+  padding:40px 0;
+  display:flex;
+  justify-content:center;
+}
+.review-section{
+  max-width:1100px;
+  width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  padding:20px;
+}
+.review-box{
+  flex:1 1 calc(50% - 20px);
+  text-align:center;
+  background:#fff;
+  border-radius:12px;
+  padding:10px;
+  color:#1e293b;
+}
+.review-box img{
+  width:100%;
+  max-width:250px;
+  height:200px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+.review-title-box{
+  background:#4f83c4;
+  color:white;
+  padding:5px 10px;
+  border-radius:8px;
+  margin-bottom:10px;
+  font-weight:bold;
+  width:fit-content;
+}
+
+
+footer{
+  background:#020617;
+  color:#e5e7eb;
+  padding:50px 20px 20px;
+}
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:30px;
+}
+.footer-box h3{margin-bottom:15px; color:#38bdf8;}
+.footer-box p,.footer-box a{font-size:14px; line-height:1.6; color:#d1d5db; text-decoration:none;}
+.footer-box ul{list-style:none;}
+.footer-box ul li{margin-bottom:8px;}
+.footer-box a:hover{color:#38bdf8;}
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  border-top:1px solid #334155;
+  padding-top:15px;
+  font-size:13px;
+  color:#9ca3af;
+}
+
+
+.nav-buttons{
+  max-width:1100px;
+  margin:20px auto 60px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+}
+.nav-buttons a{
+  padding:10px 25px;
+  background:#1e3a8a;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+}
+.nav-buttons a:hover{background:#2563eb;}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="img/logo.jpg" alt="Visit Perlis Logo" class="header-logo">
+  <img src="img/benderaperlis.jpg" alt="Bendera Perlis" class="header-flag">
+  <h1>Food & Lifestyle</h1>
+  <p>Explore the unique and delicious local foods of Perlis that every visitor must try.</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="#">About Perlis</a>
+  <ul>
+    <li><a href="overview.html#overview">Overview</a></li>
+    <li><a href="history.html#history">History</a></li>
+    <li><a href="people.html#people">People & Community</a></li>
+  </ul>
+</li>
+<li><a href="#">Explore Perlis</a>
+  <ul>
+    <li><a href="nature.html#nature">Nature & Adventure</a></li>
+    <li><a href="culture.html#culture">Culture & Heritage</a></li>
+    <li><a href="things.html#things">Things To Do</a></li>
+  </ul>
+</li>
+<li><a href="#">Food & Lifestyle</a>
+  <ul>
+    <li><a href="local.html#local">Local Food</a></li>
+    <li><a href="traditional.html#traditional">Traditional Cuisine</a></li>
+  </ul>
+</li>
+<li><a href="#">Travel Info</a>
+  <ul>
+    <li><a href="tips.html#tips">Travel Tips</a></li>
+    <li><a href="faq.html#faq">FAQ</a></li>
+    <li><a href="contact.html#contact">Contact Us</a></li>
+  </ul>
+</li>
+</ul>
+</nav>
+
+<h2 class="section-title">Local Food</h2>
+
+<div class="intro-box">
+Perlis may be the smallest state in Malaysia, but its local food is truly rich and unique.
+The cuisine is strongly influenced by Northern Malay and Siamese cultures.
+</div>
+
+<h2 class="section-title">Perlis Food Around The Clock</h2>
+
+<div class="time-section">
+  <div class="label">Breakfast</div>
+  <div class="time-row">
+    <div class="time-box">
+      <a href="https://www.instagram.com/warungteratakbonda" target="_blank">
+        <img src="img/eat1.jpg" alt="Warung Teratak Bonda">
+      </a>
+      <div>
+        <h3>Warung Teratak Bonda</h3>
+        <p>Enjoy a traditional kampung breakfast at Warung Teratak Bonda with Penga, pucuk ubi rebus, and local drinks for RM3–RM8 per item in a cozy, rustic setting.</p>
+      </div>
+    </div>
+
+    <div class="time-box">
+      <a href="https://www.instagram.com/araukopi" target="_blank">
+        <img src="img/eat2.jpg" alt="Arau Kopi">
+      </a>
+      <div>
+        <h3>Arau Kopi</h3>
+        <p>Arau Kopi in Perlis is a popular café serving traditional breakfast like Penga, nasi lemak kampung, and local coffee at affordable prices (RM3–RM10) in a relaxed kampung-style setting.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">Lunch</div>
+  <div class="time-row">
+    <div class="time-box soft-yellow">
+      <a href="https://www.instagram.com/anjungkeli" target="_blank">
+        <img src="img/eat3.jpg" alt="Anjung Keli">
+      </a>
+      <div>
+        <h3>Anjung Keli</h3>
+        <p>Anjung Keli in Perlis is a popular lunch spot known for its fresh grilled and fried fish dishes. Visitors can enjoy kampung-style meals in a casual riverside setting, with prices typically RM10–RM25 per dish.</p>
+      </div>
+    </div>
+
+    <div class="time-box soft-yellow">
+      <a href="https://www.instagram.com/restorensuri" target="_blank">
+        <img src="img/eat4.jpg" alt="Restoren Suri">
+      </a>
+      <div>
+        <h3>Restoren Suri</h3>
+        <p>Restoren Suri in Perlis offers a variety of traditional Northern Malaysian dishes, including Mee Rebus Utara and other kampung-style favorites. Meals are affordable, usually RM8–RM20 per dish, in a casual, family-friendly setting.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">Dinner</div>
+  <div class="time-row">
+    <div class="time-box">
+      <a href="https://www.instagram.com/nyiruklasik" target="_blank">
+        <img src="img/eat5.jpg" alt="Nyiru Klasik">
+      </a>
+      <div>
+        <h3>Nyiru Klasik</h3>
+        <p>Nyiru Klasik in Perlis is a cozy spot for dinner, offering traditional Northern Malaysian dishes like Laksa Perlis and other kampung favorites. Prices are reasonable, typically RM10–RM25 per dish, in a warm, rustic setting.</p>
+      </div>
+    </div>
+
+    <div class="time-box">
+      <a href="https://www.instagram.com/chortiezandco" target="_blank">
+        <img src="img/eat6.jpg" alt="Chortiez & Co">
+      </a>
+      <div>
+        <h3>Chortiez & Co</h3>
+        <p>Cortiez & Co in Perlis is a trendy dinner spot offering dishes like chicken chop, lamb chop, steak, burgers, pasta, and grilled salmon, along with specialty drinks. Meals are served in a stylish, cozy setting, with prices around RM20–RM40 per dish.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">Perlis On A Plate Food Review</h2>
+
+<div class="review-bg">
+  <div class="review-section">
+
+  <div class="review-box">
+  <div class="review-title-box">Air Nira</div>
+  <img src="img/good1.jpg" alt="Air Nira">
+  <p class="review-place">Ladang Nipah Kipli, Sanglang</p>
+  <div class="green-box">Fresh and naturally sweet nipah sap.</div>
+  <div class="green-box">Unique experience drinking straight from the nipah trees.</div>
+  <div class="green-box">Rate 4.2 ★★★★</div>
+</div>
+
+    <div class="review-box">
+      <div class="review-title-box">Bihun Sup Utara</div>
+      <img src="img/good2.jpg" alt="Bihun Sup Utara">
+      <p>Paksu Bihun Sup Kuala Perlis</p>
+      <div class="green-box">The bihun sup is tasty and rich.</div>
+      <div class="green-box">The meat is tender and fresh.</div>
+      <div class="green-box">Rate 4.9 ★★★★★</div>
+    </div>
+
+    <div class="review-box">
+      <div class="review-title-box">Laksa Kuala Perlis</div>
+      <img src="img/good3.jpg" alt="Laksa Kuala Perlis">
+      <p>Kak Su Laksa Restaurant</p>
+      <div class="green-box">The laksa at Kak Su is rich and flavorful.</div>
+      <div class="green-box">The broth is spicy with a perfect balance of coconut and spices.</div>
+      <div class="green-box">Rate 4.0 ★★★★</div>
+    </div>
+
+    <div class="review-box">
+      <div class="review-title-box">Pek Nga</div>
+      <img src="img/good4.jpg" alt="Pek Nga">
+      <p>Warung Tepi Sawah</p>
+      <div class="green-box">The Traditional peknga here is tasty with nice local flavour</div>
+      <div class="green-box">Prices are affordable for a local breakfast spot</div>
+      <div class="green-box">Rate 4.2 ★★★★</div>
+    </div>
+
+  </div>
+</div>
+
+<h2 class="section-title">Perlis Food Map</h2>
+
+<div style="max-width:1100px; margin:20px auto; text-align:center;">
+  <img id="mapImg" src="img/map.jpg" alt="Perlis Food Map" style="width:100%; max-width:600px; border-radius:12px; cursor:pointer;">
+</div>
+
+<div id="mapModal" style="display:none; position:fixed; z-index:2000; padding-top:60px; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.85);">
+  <span id="closeModal" style="position:absolute; top:20px; right:35px; color:white; font-size:40px; font-weight:bold; cursor:pointer;">&times;</span>
+  <img id="modalImg" style="margin:auto; display:block; max-width:95%; max-height:90%; border-radius:12px;">
+</div>
+
+<div style="margin-top:10px; text-align:center;">
+  <a href="files/Perlis_Interesting_Food_Places_Guide.pdf" download style="font-weight:bold; color:#1e3a8a;">
+    💾 Download PDF
+  </a>
+</div>
+
+<script>
+// Lightbox script
+var modal = document.getElementById("mapModal");
+var img = document.getElementById("mapImg");
+var modalImg = document.getElementById("modalImg");
+var close = document.getElementById("closeModal");
+
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+}
+
+close.onclick = function() {
+  modal.style.display = "none";
+}
+
+modal.onclick = function(event){
+  if(event.target == modal){
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+<div class="nav-buttons">
+  <a href="things.html">Back</a>
+  <a href="traditional.html">Next</a>
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-box">
+            <h3>Visit Perlis</h3>
+            <p>Official tourism website promoting attractions and culture of Perlis.</p>
+        </div>
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html#overview">About Perlis</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Lifestyle</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>Explore</h3>
+            <ul>
+                <li><a href="#">Nature</a></li>
+                <li><a href="#">Culture</a></li>
+                <li><a href="#">Food</a></li>
+                <li><a href="#">Travel Tips</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Email: info@visitperlis.com</p>
+            <p>Phone: +60 4-123 4567</p>
+            <p>Perlis, Malaysia</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        © 2025 Visit Perlis | Recommended Browser: Chrome | All rights reserved.
+    </div>
+</footer>
+
+</body>
+</html>
